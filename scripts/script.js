@@ -10,7 +10,11 @@ const block9 = document.getElementById("b9");
 
 const allBlocks = Array.from(document.querySelectorAll(".playArea_block"));
 
-const restartButton = document.querySelector(".restart")
+const restartButton = document.querySelector(".restart");
+
+let player1Score = document.getElementById("player1Score");
+let player2Score = document.getElementById("player2Score");
+
 
 
 let previousSymbol = ""
@@ -61,27 +65,26 @@ const playMove = (event) => {
 
         winningStates.forEach((block) => {
             if (block.toString() === "X,X,X") {
-                window.alert("You win")
+                window.alert("Player 2 Wins")
+                player2Score.innerHTML = (Number(player2Score.innerHTML) + 1)
             } else if (block.toString() === "O,O,O") {
-                window.alert("Noughts win")
+                window.alert("Player 1 wins")
+              player1Score.innerHTML = (Number(player1Score.innerHTML) + 1)
             } else {
                 console.log("continue")
             }
+            // add the confetti and pop-up innerHTml
+            // bug with left to right donwards diagonal not working
         })
 }
 
 // restart function 
-
 
 const restartGame = (event) => {
     allBlocks.forEach((block) => {
         block.innerHTML = ""
     })
 }
-
-
-
-
 
 restartButton.addEventListener ("click", restartGame)
 
