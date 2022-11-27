@@ -1,0 +1,38 @@
+.playArea {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  border: 2px solid red;
+}
+.playArea_block {
+  margin: 5%;
+  border: 3px solid black;
+  text-align: center;
+}
+.playArea_block-1 {
+  grid-area: 1/1/2/2;
+}
+.playArea_block-2 {
+  grid-area: 1/2/2/3;
+}
+.playArea_block-3 {
+  grid-area: 1/3/2/4;
+}
+.playArea_block-4 {
+  grid-area: 2/1/3/2;
+}
+.playArea_block-5 {
+  grid-area: 2/2/3/3;
+}
+.playArea_block-6 {
+  grid-area: 2/3/3/4;
+}
+.playArea_block-7 {
+  grid-area: 3/1/4/2;
+}
+.playArea_block-8 {
+  grid-area: 3/2/4/3;
+}
+.playArea_block-9 {
+  grid-area: 3/3/4/4;
+}/*# sourceMappingURL=main.css.map */
