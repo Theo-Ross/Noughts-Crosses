@@ -8,11 +8,9 @@ const block7 = document.getElementById("b7");
 const block8 = document.getElementById("b8");
 const block9 = document.getElementById("b9");
 
-const allBlocks = document.querySelector(".playArea_block")
+const allBlocks = Array.from(document.querySelectorAll(".playArea_block"));
 
 const restartButton = document.querySelector(".restart")
-
-
 
 
 let previousSymbol = ""
@@ -41,12 +39,12 @@ const playMove = (event) => {
         event.target.innerHTML = symbol;
         previousSymbol ="O";
 
-    }   
-
+    }
 }
 }
 
 
+// Check for win function
     
     const checkForWin = (event) => {
 
@@ -62,21 +60,33 @@ const playMove = (event) => {
             ]
 
         winningStates.forEach((block) => {
-            console.log(block.toString())
             if (block.toString() === "X,X,X") {
                 window.alert("You win")
+            } else if (block.toString() === "O,O,O") {
+                window.alert("Noughts win")
             } else {
                 console.log("continue")
             }
         })
 }
 
-// Turn this into an array so that you only have to select the values 0,1,2 rather than repeat innerHTML each time
-
-    
+// restart function 
 
 
+const restartGame = (event) => {
+    allBlocks.forEach((block) => {
+        block.innerHTML = ""
+    })
+}
 
+
+
+
+
+restartButton.addEventListener ("click", restartGame)
+
+
+//event listeners
 
 block1.addEventListener("click", playMove)
 block1.addEventListener("click", checkForWin)
