@@ -59,22 +59,26 @@ const playMove = (event) => {
             [block1.innerHTML, block4.innerHTML, block7.innerHTML],
             [block2.innerHTML, block5.innerHTML ,block8.innerHTML],
             [block3.innerHTML, block6.innerHTML, block9.innerHTML],
-            [block1.innerHTML, block5.innerHTML, block6.innerHTML],
+            [block1.innerHTML, block5.innerHTML, block9.innerHTML],
             [block7.innerHTML, block5.innerHTML, block3.innerHTML],
             ]
 
         winningStates.forEach((block) => {
+            if (block.includes("")) {
+                console.log("continue")
+            } else {
             if (block.toString() === "X,X,X") {
                 window.alert("Player 2 Wins")
                 player2Score.innerHTML = (Number(player2Score.innerHTML) + 1)
             } else if (block.toString() === "O,O,O") {
                 window.alert("Player 1 wins")
               player1Score.innerHTML = (Number(player1Score.innerHTML) + 1)
-            } else {
-                console.log("continue")
             }
+              else {
+                window.alert("draw!")
+            }
+        }
             // add the confetti and pop-up innerHTml
-            // bug with left to right donwards diagonal not working
         })
 }
 
