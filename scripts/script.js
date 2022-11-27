@@ -12,6 +12,9 @@ const allBlocks = document.querySelector(".playArea_block")
 
 const restartButton = document.querySelector(".restart")
 
+
+
+
 let previousSymbol = ""
 let symbol = ""
 
@@ -38,39 +41,75 @@ const playMove = (event) => {
         event.target.innerHTML = symbol;
         previousSymbol ="O";
 
-    }
+    }   
+
 }
 }
 
 
-const restartGame = (event) => {
-    allBlocks.innerHTML = " "
+    
+    const checkForWin = (event) => {
+
+        const winningStates = [
+            [block1.innerHTML, block2.innerHTML, block3.innerHTML],
+            [block4.innerHTML, block5.innerHTML, block6.innerHTML],
+            [block7.innerHTML, block8.innerHTML, block9.innerHTML],
+            [block1.innerHTML, block4.innerHTML, block7.innerHTML],
+            [block2.innerHTML, block5.innerHTML ,block8.innerHTML],
+            [block3.innerHTML, block6.innerHTML, block9.innerHTML],
+            [block1.innerHTML, block5.innerHTML, block6.innerHTML],
+            [block7.innerHTML, block5.innerHTML, block3.innerHTML],
+            ]
+
+        winningStates.forEach((block) => {
+            console.log(block.toString())
+            if (block.toString() === "X,X,X") {
+                window.alert("You win")
+            } else {
+                console.log("continue")
+            }
+        })
 }
+
+// Turn this into an array so that you only have to select the values 0,1,2 rather than repeat innerHTML each time
+
+    
+
+
 
 
 block1.addEventListener("click", playMove)
+block1.addEventListener("click", checkForWin)
+
 block2.addEventListener("click", playMove)
+block2.addEventListener("click", checkForWin)
+
 block3.addEventListener("click", playMove)
+block3.addEventListener("click", checkForWin)
+
+
 block4.addEventListener("click", playMove)
+block4.addEventListener("click", checkForWin)
+
+
 block5.addEventListener("click", playMove)
+block5.addEventListener("click", checkForWin)
+
+
 block6.addEventListener("click", playMove)
+block6.addEventListener("click", checkForWin)
+
+
 block7.addEventListener("click", playMove)
+block7.addEventListener("click", checkForWin)
+
+
 block8.addEventListener("click", playMove)
+block8.addEventListener("click", checkForWin)
+
+
 block9.addEventListener("click", playMove)
+block9.addEventListener("click", checkForWin)
 
-restartButton.addEventListener("click", restartGame)
 
-
-const winningStates = [
-[block1, block2, block3]
-[block4, block5, block6]
-[block7, block8, block9]
-[block1, block4, block7]
-[block2, block5 ,block8]
-[block3, block6, block9]
-[block1, block5, block6]
-[block7, block5, block3]
-]
-
-winningStates.forEach
 
