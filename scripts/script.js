@@ -10,7 +10,7 @@ const block9 = document.getElementById("b9");
 
 
 const allBlocks = Array.from(document.querySelectorAll(".playArea_block"));
-const playerScore = document.querySelector(".playerScore")
+const playerScore = document.querySelectorAll(".playerScore")
 
 const restartButton = document.querySelector(".restart");
 const resetButton = document.querySelector(".reset")
@@ -130,16 +130,21 @@ const restartGame = (event) => {
     allBlocks.forEach((block) => {
         block.innerHTML = ""
         previousSymbol = ""
-        screen.classList.remove("screenShow");
+        
     })
+    screen.classList.remove("screenShow");
 }
 
 const resetGame = (event) => {
     playerScore.innerHTML = "0";
     allBlocks.forEach((block) => {
         block.innerHTML = "";
-        screen.classList.remove("screenShow");
+        
     })
+    // turn this into a function?
+    player1Score.innerHTML = "0";
+    player2Score.innerHTML = "0";
+    screen.classList.remove("screenShow")
 }
 
 restartButton.addEventListener ("click", restartGame)
