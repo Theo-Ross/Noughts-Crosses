@@ -2,13 +2,22 @@
 
 $primary-font: 'Alexandria', 'sans-serif';
 
+.retro{ 
+--background-color: #000000;
+--color-black: #000000;
+--color-white: #ffff;
+--primary-color: red;
+--secondary-color: blue;
+}
 
-$background-color: #000000;
-$color-black: #000000;
-$color-white: #ffff;
-$primary-color: red;
-$secondary-color: blue;
+.neon {
+    --background-color: #32f42e;
+    --color-black: #000000;
+    --color-white: rgb(18, 232, 229);
+    --primary-color: rgb(242, 75, 214);
+    --secondary-color: rgb(255, 238, 0);
 
+}
 
 
 $mobile-breakpoint: 320px;
