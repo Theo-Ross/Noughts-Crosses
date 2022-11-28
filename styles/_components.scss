@@ -1,17 +1,21 @@
 @use "./variable.scss" as *;
 
 
+
+
 .mainContainer {
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 90vh;
+    margin: 5%;
 }
 
 
 .playArea {
 
-    width: 70%;
+    width: 70vw;
     height: 70vh;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -74,6 +78,8 @@
     width: 60%;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+    margin: 3%;
+    
 }
 
 .playerName {
@@ -102,4 +108,20 @@
 
 #player2Score {
     grid-area: 2 / 2 / 3 / 3;
+}
+
+.buttons {
+display: flex;
+border: 3px solid black;
+    padding: 3%;
+    margin: 1%;
+    flex-direction: column;
+
+    &_1{
+        margin: 5%;
+    }
+
+    &_2 {
+        margin: 5%;
+    }
 }
