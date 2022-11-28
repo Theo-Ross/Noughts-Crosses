@@ -54,6 +54,7 @@ const playMove = (event) => {
     
     const checkForWin = (event) => {
 
+
         const winningStates = [
             [block1.innerHTML, block2.innerHTML, block3.innerHTML],
             [block4.innerHTML, block5.innerHTML, block6.innerHTML],
@@ -65,18 +66,10 @@ const playMove = (event) => {
             [block7.innerHTML, block5.innerHTML, block3.innerHTML],
             ]
 
-        winningStates.forEach((block) => {
 
-            if (allBlocks.forEach((i) => {
-                console.log(i.innerHTML)
-                i.innerHTML.includes(" ") 
-            })) {
-                console.log("continue")
-            } 
-            // need to rethink this section and how to use this if statement 
-            
-            
-            else {
+        
+        winningStates.forEach((block) => {
+         
             if (block.toString() === "X,X,X") {
                 window.alert("Player 2 Wins")
                 player2Score.innerHTML = (Number(player2Score.innerHTML) + 1)
@@ -85,24 +78,27 @@ const playMove = (event) => {
                 window.alert("Player 1 wins")
               player1Score.innerHTML = (Number(player1Score.innerHTML) + 1)
               previousSymbol = ""
-
             }
-              else {
+              else if (block.toString() === "X,X,O" && block.toString() === "X,O,O" && block.toString() === "X,O,X" && block.toString() === "O,O,X" && block.toString() === "O,X,X" && block.toString() ==="O,X,O"){
                 console.log("draw!")
-                // there is a draw bug
             }
-        }
+            else {
+                console.log("you not done yet")
+            }
+        }) }
             // add the confetti and pop-up innerHTml
-        })
-}
+    
 
 
 // color function 
 
+
 const changeColor = (event ) => {
     if (event.target.innerHTML === "O") {
-       let nought = event.target.innerHTML;
-        nought.fontcolor("red");
+        event.target.style.color = "red";
+        }
+        else if (event.target.innerHTML === "X") {
+            event.target.style.color = "blue";
         }
 }
 
@@ -121,14 +117,11 @@ const resetGame = (event) => {
     allBlocks.forEach((block) => {
         block.innerHTML = "";
     })
-
 }
 
 restartButton.addEventListener ("click", restartGame)
-
 resetButton.addEventListener("click", resetGame )
 
-//event listeners
 
 block1.addEventListener("click", playMove)
 block1.addEventListener("click", checkForWin)
@@ -136,33 +129,39 @@ block1.addEventListener("click", changeColor)
 
 block2.addEventListener("click", playMove)
 block2.addEventListener("click", checkForWin)
+block2.addEventListener("click", changeColor)
+
 
 block3.addEventListener("click", playMove)
 block3.addEventListener("click", checkForWin)
+block3.addEventListener("click", changeColor)
 
 
 block4.addEventListener("click", playMove)
 block4.addEventListener("click", checkForWin)
+block4.addEventListener("click", changeColor)
 
 
 block5.addEventListener("click", playMove)
 block5.addEventListener("click", checkForWin)
+block5.addEventListener("click", changeColor)
 
 
 block6.addEventListener("click", playMove)
 block6.addEventListener("click", checkForWin)
+block6.addEventListener("click", changeColor)
 
 
 block7.addEventListener("click", playMove)
 block7.addEventListener("click", checkForWin)
+block7.addEventListener("click", changeColor)
 
 
 block8.addEventListener("click", playMove)
 block8.addEventListener("click", checkForWin)
+block8.addEventListener("click", changeColor)
 
 
 block9.addEventListener("click", playMove)
-block9.addEventListener("click", checkForWin)
-
-
-
+block9.addEventListener("click", checkForWin);
+block9.addEventListener("click", changeColor)
