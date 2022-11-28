@@ -8,6 +8,7 @@ const block7 = document.getElementById("b7");
 const block8 = document.getElementById("b8");
 const block9 = document.getElementById("b9");
 
+
 const allBlocks = Array.from(document.querySelectorAll(".playArea_block"));
 const playerScore = document.querySelector(".playerScore")
 
@@ -45,16 +46,18 @@ const playMove = (event) => {
         event.target.innerHTML = symbol;
         previousSymbol ="O";
 
-    }
-}
-}
+    }}}
+
+
+// toggle class for screen when won 
+
+const screen = document.querySelector(".buttons");
+const playerWinner = document.querySelector(".buttons_winner")
 
 
 // Check for win function
     
     const checkForWin = (event) => {
-
-
         const winningStates = [
             [block1.innerHTML, block2.innerHTML, block3.innerHTML],
             [block4.innerHTML, block5.innerHTML, block6.innerHTML],
@@ -66,33 +69,51 @@ const playMove = (event) => {
             [block7.innerHTML, block5.innerHTML, block3.innerHTML],
             ]
 
+        const drawCheck = [
+            block1.innerHTML, block2.innerHTML, block3.innerHTML, block4.innerHTML, block5.innerHTML, block6.innerHTML, block7.innerHTML, block8.innerHTML, block9.innerHTML
+        ]
 
         
         winningStates.forEach((block) => {
          
             if (block.toString() === "X,X,X") {
-                window.alert("Player 2 Wins")
+                playerWinner.innerHTML = "PLAYER 2 WINS";
                 player2Score.innerHTML = (Number(player2Score.innerHTML) + 1)
                 previousSymbol = ""
+                screen.classList.add("screenShow")
             } else if (block.toString() === "O,O,O") {
-                window.alert("Player 1 wins")
               player1Score.innerHTML = (Number(player1Score.innerHTML) + 1)
               previousSymbol = ""
+              playerWinner.innerHTML = "PLAYER 1 WINS"
+              screen.classList.add("screenShow")
+
+
+
+            // } else if (drawCheck.map((i) => {
+            //     console.log(i)
+            //     i.innerHTML.includes(" ");
+// draw bug still not fixed. Need to work out how to identify empty blocks
+
+            // })) { 
+                // console.log("You not done yet")
+
             }
-              else if (block.toString() === "X,X,O" && block.toString() === "X,O,O" && block.toString() === "X,O,X" && block.toString() === "O,O,X" && block.toString() === "O,X,X" && block.toString() ==="O,X,O"){
-                console.log("draw!")
-            }
+
+            //   else if (block.toString() === "X,X,O" && block.toString() === "X,O,O" && block.toString() === "X,O,X" && block.toString() === "O,O,X" && block.toString() === "O,X,X" && block.toString() ==="O,X,O"){
+            //     console.log("draw!")
+        
             else {
-                console.log("you not done yet")
-            }
-        }) }
+                console.log("not finished")
+            } 
+        })
+    }
+
             // add the confetti and pop-up innerHTml
     
 
 
+
 // color function 
-
-
 const changeColor = (event ) => {
     if (event.target.innerHTML === "O") {
         event.target.style.color = "red";
@@ -109,6 +130,7 @@ const restartGame = (event) => {
     allBlocks.forEach((block) => {
         block.innerHTML = ""
         previousSymbol = ""
+        screen.classList.remove("screenShow");
     })
 }
 
@@ -116,13 +138,14 @@ const resetGame = (event) => {
     playerScore.innerHTML = "0";
     allBlocks.forEach((block) => {
         block.innerHTML = "";
+        screen.classList.remove("screenShow");
     })
 }
 
 restartButton.addEventListener ("click", restartGame)
 resetButton.addEventListener("click", resetGame )
 
-
+// turn this into one function to execute all three
 block1.addEventListener("click", playMove)
 block1.addEventListener("click", checkForWin)
 block1.addEventListener("click", changeColor)

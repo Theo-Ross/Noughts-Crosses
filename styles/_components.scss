@@ -4,7 +4,7 @@
 
 
 .mainContainer {
-
+    background-color: $background-color;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,24 +12,26 @@
     margin: 5%;
 }
 
+h1 {
+    color: $color-white;
+}
 
 .playArea {
 
+    background-color: $color-white;
     width: 70vw;
     height: 70vh;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    border: 2px solid red;
 
 
     &_block {
-        margin: 5%;
-        border: 3px solid black;
+        background-color: $background-color;
+       margin: 5%;
         text-align: center;
         height: 80%;
         font-size: 100px;
-        background-color: white;
         }
 
     &_block-1 {
@@ -72,13 +74,15 @@
 };
 
 .scoreCard {
-    border: 2px solid red;
     justify-content: center;
     display: grid;
     width: 60%;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     margin: 3%;
+    border-radius: 100%;
+    background-color: $color-white;
+    
     
 }
 
@@ -111,11 +115,27 @@
 }
 
 .buttons {
-display: flex;
-border: 3px solid black;
-    padding: 3%;
-    margin: 1%;
-    flex-direction: column;
+
+    
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    justify-items: center;
+
+   
+
+    &_box {
+        display: flex;
+        border: 3px solid black;
+        padding: 3%;
+        position: absolute;
+        justify-content: center;
+        background-color: $color-white;
+    }
 
     &_1{
         margin: 5%;
@@ -124,4 +144,8 @@ border: 3px solid black;
     &_2 {
         margin: 5%;
     }
+}
+
+.screenShow {
+    display: flex;
 }

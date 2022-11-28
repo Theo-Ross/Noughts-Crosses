@@ -7,10 +7,21 @@
     <title>Noughts & Crosses</title>
     <link rel="stylesheet" href="./styles/main.css">
 </head>
+
+
 <body>
+
+    
 
     <div class="mainContainer">
     <h1>NOUGHTS & CROSSES</h1>
+
+    <div class="scoreCard">
+    <h2 id="playerName1" class="playerName">Player 1</h2>
+    <div id="player1Score" class="playerScore">0</div>
+    <h3 id="playerName2" class="playerName">Player 2</h3>
+    <div id="player2Score" class="playerScore">0</div>
+</div>
 
     <div class="playArea">
         <button id="b1" class="playArea_block-1 playArea_block"> </button>
@@ -24,15 +35,17 @@
         <button id="b9" class="playArea_block-9 playArea_block"> </button>
     </div>
 
-    <div class="scoreCard">
-        <h2 id="playerName1" class="playerName">Player 1</h2>
-        <div id="player1Score" class="playerScore">0</div>
-        <h3 id="playerName2" class="playerName">Player 2</h3>
-        <div id="player2Score" class="playerScore">0</div>
-    </div>
+   
 
-    <button class="restart">Another Game?</button>
-    <button class="reset">Reset</button>
+    
+</div>
+
+<div class="buttons">
+    <div class="buttons_box">
+        <p class="buttons_winner"></p>
+    <button class="restart buttons_1">Another Game?</button>
+    <button class="reset buttons_2">Reset</button>
+</div>
 </div>
     <script src="./scripts/script.js"></script>
 </body>
