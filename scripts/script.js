@@ -9,8 +9,10 @@ const block8 = document.getElementById("b8");
 const block9 = document.getElementById("b9");
 
 const allBlocks = Array.from(document.querySelectorAll(".playArea_block"));
+const playerScore = document.querySelector(".playerScore")
 
 const restartButton = document.querySelector(".restart");
+const resetButton = document.querySelector(".reset")
 
 let player1Score = document.getElementById("player1Score");
 let player2Score = document.getElementById("player2Score");
@@ -64,39 +66,73 @@ const playMove = (event) => {
             ]
 
         winningStates.forEach((block) => {
-            if (block.includes("")) {
+
+            if (allBlocks.forEach((i) => {
+                console.log(i.innerHTML)
+                i.innerHTML.includes(" ") 
+            })) {
                 console.log("continue")
-            } else {
+            } 
+            // need to rethink this section and how to use this if statement 
+            
+            
+            else {
             if (block.toString() === "X,X,X") {
                 window.alert("Player 2 Wins")
                 player2Score.innerHTML = (Number(player2Score.innerHTML) + 1)
+                previousSymbol = ""
             } else if (block.toString() === "O,O,O") {
                 window.alert("Player 1 wins")
               player1Score.innerHTML = (Number(player1Score.innerHTML) + 1)
+              previousSymbol = ""
+
             }
               else {
-                window.alert("draw!")
+                console.log("draw!")
+                // there is a draw bug
             }
         }
             // add the confetti and pop-up innerHTml
         })
 }
 
+
+// color function 
+
+const changeColor = (event ) => {
+    if (event.target.innerHTML === "O") {
+       let nought = event.target.innerHTML;
+        nought.fontcolor("red");
+        }
+}
+
+
 // restart function 
 
 const restartGame = (event) => {
     allBlocks.forEach((block) => {
         block.innerHTML = ""
+        previousSymbol = ""
     })
+}
+
+const resetGame = (event) => {
+    playerScore.innerHTML = "0";
+    allBlocks.forEach((block) => {
+        block.innerHTML = "";
+    })
+
 }
 
 restartButton.addEventListener ("click", restartGame)
 
+resetButton.addEventListener("click", resetGame )
 
 //event listeners
 
 block1.addEventListener("click", playMove)
 block1.addEventListener("click", checkForWin)
+block1.addEventListener("click", changeColor)
 
 block2.addEventListener("click", playMove)
 block2.addEventListener("click", checkForWin)

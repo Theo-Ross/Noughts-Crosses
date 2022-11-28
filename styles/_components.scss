@@ -24,6 +24,8 @@
         border: 3px solid black;
         text-align: center;
         height: 80%;
+        font-size: 100px;
+        background-color: white;
         }
 
     &_block-1 {
@@ -84,12 +86,13 @@
 }
 
 #playerName1 {
+    color: $primary-color;
     grid-area: 1 / 1 / 2 / 2;
 
 }
 
 #playerName2 {
-
+    color: $secondary-color;
     grid-area: 1 / 2 / 2 / 3;
 }
 
