@@ -18,11 +18,15 @@ const resetButton = document.querySelector(".reset")
 let player1Score = document.getElementById("player1Score");
 let player2Score = document.getElementById("player2Score");
 
-const body = document.querySelector("body")
-const themeSwitch = document.getElementById("themeSwitch")
+const body = document.querySelector("body");
+const themeSwitch = document.getElementById("themeSwitch");
 
-const Ochange = document.querySelector(".Ochange")
-const Xchange = document.querySelector(".Xchange")
+const Ochange = document.querySelector(".Ochange");
+const Xchange = document.querySelector(".Xchange");
+
+const easterEggX = document.querySelector(".title_X");
+const easterEggO = document.querySelector(".title_O");
+
 
 let previousSymbol = ""
 let symbol = ""
@@ -39,13 +43,13 @@ const switchThemes = (event) => {
         body.classList.remove("neon");
         body.classList.add("retro");
     }
-
-    
 }
 
 themeSwitch.addEventListener("click", switchThemes)
 
-//////
+
+
+//playmove 
 
 const playMove = (event) => {
     if ( event.target.innerHTML ===  "O") {
@@ -72,10 +76,14 @@ const playMove = (event) => {
     }}}
 
 
+
 // toggle class for screen when won 
 
 const screen = document.querySelector(".buttons");
 const playerWinner = document.querySelector(".buttons_winner")
+
+
+
 
 
 // Check for win function
@@ -136,21 +144,41 @@ const playerWinner = document.querySelector(".buttons_winner")
 
 
 
+
+
 // color function 
 const changeColor = (event ) => {
-    if (event.target.innerHTML === "O") {
-        event.target.classList.add("Ochange");
-        }
-        else if (event.target.innerHTML === "X") {
+    // if (event.target.innerHTML === "O" & event.classList.contains("Xchange") ) {
+    //     event.target.innerHTML.remove("Xchange")
+    //     event.target.classList.add("Ochange");
+    //     } else if (event.target.innerHTML === "O") {
+    //         event.target.classList.add("Ochange");
+    //     } else if (event.target.innerHTML === "X" && event.classList.contains("Ochange")) {
+    //         event.target.classList.remove("Ochange")
+    //         event.target.classList.add("Xchange");
+    //     } else if (event.target.innerHTML === "X") {
+    //         event.target.classList.add("Xchange")  
+    //     }
+
+        if  (event.target.innerHTML === "O") {
+            event.target.classList.add("Ochange");
+        } else if (event.target.innerHTML === "X") {
             event.target.classList.add("Xchange");
         }
+
+       
 }
 
 
-// restart function 
+
+
+
+
+// restart & reset function 
 
 const restartGame = (event) => {
     allBlocks.forEach((block) => {
+        block.classList.remove("Ochange", "Xchange")
         block.innerHTML = ""
         previousSymbol = ""
         
@@ -161,7 +189,9 @@ const restartGame = (event) => {
 const resetGame = (event) => {
     playerScore.innerHTML = "0";
     allBlocks.forEach((block) => {
+        block.classList.remove("Ochange", "Xchange")
         block.innerHTML = "";
+        previousSymbol = "";
         
     })
     // turn this into a function?
@@ -172,6 +202,47 @@ const resetGame = (event) => {
 
 restartButton.addEventListener ("click", restartGame)
 resetButton.addEventListener("click", resetGame )
+
+
+
+// Easter Egg 
+
+const override = (event) => {
+    if (event.target.innerHTML === "O") {
+        playerWinner.innerHTML = "PLAYER 2 WINS";
+                player2Score.innerHTML = (Number(player2Score.innerHTML) + 2)
+                previousSymbol = ""
+        
+        alert("O wins")
+                allBlocks.forEach((block) => {
+                    block.classList.remove("Xchange")
+                    block.classList.add("Ochange")
+                    block.innerHTML = "O";
+                })
+                screen.classList.add("screenShow")
+
+
+    } else if (event.target.innerHTML === "X") {
+        playerWinner.innerHTML = "PLAYER 1 WINS";
+        player1Score.innerHTML = (Number(player1Score.innerHTML) + 2)
+        previousSymbol = ""
+
+        alert("X wins")
+        allBlocks.forEach((block) => {
+            block.classList.remove("Ochange")
+            block.classList.add("Xchange")
+                    block.innerHTML = "X";
+})
+                screen.classList.add("screenShow")
+
+}
+}
+
+easterEggX.addEventListener("dblclick", override);
+easterEggO.addEventListener("dblclick", override);
+
+
+
 
 // turn this into one function to execute all three
 
