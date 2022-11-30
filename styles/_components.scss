@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin: 5%;
 
     
 
@@ -36,6 +37,13 @@ h1 {
     color: var(--color-white);
 }
 
+#themeSwitch {
+    border: 2px solid var(--color-white);
+    padding: 1%;
+    margin: 2%;
+    background-color: var(--color-white);
+}
+
 .playArea {
 
     background-color: var(--background-colorcolor);
@@ -45,7 +53,8 @@ h1 {
     grid-template-columns: repeat(3, 33%);
     grid-template-rows: repeat(3, 33%);
     grid-column-gap: 5%;
-    
+    justify-content: center;
+    margin: 5%;
 
 
 
@@ -103,8 +112,8 @@ h1 {
     width: 60%;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    margin: 3%;
-    border-radius: 80%;
+    margin: 1%;
+    border-radius: 40%;
     padding: 3%;
     background-color: var(--color-white);
 }
@@ -203,4 +212,14 @@ h1 {
 
 .Xchange {
     color: var(--secondary-color);
+}
+
+@media screen and (min-width:$mobile-breakpoint) {
+    
+    .title{
+        font-size: 70%;
+    }
+
+
+
 }

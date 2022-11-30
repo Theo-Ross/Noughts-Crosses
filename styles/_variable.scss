@@ -19,6 +19,39 @@ $primary-font: 'Alexandria', 'sans-serif';
 
 }
 
+.colors3 { 
+    --background-color: #cbfafe;
+    --color-black: #96caf0;
+    --color-white: #55bdca;
+    --primary-color: #3fefe8;
+    --secondary-color: #fc4445;
+}
+
+
+.colors4 {
+    --background-color: #edf5e1;
+    --color-black: #8ee5af;
+    --color-white: #5cdc95;
+    --primary-color: #389584;
+    --secondary-color: #05386c;
+}
+
+.colors5 {
+    --background-color: #1a1a1c;
+    --color-black: #c3083f;
+    --color-white: #6f2232;
+    --primary-color: #950741;
+    --secondary-color: #4e4e50;
+}
+
+.colors { 
+    --background-color: #f0e2ba;
+    --color-black: #d79922;
+    --color-white: #c5cbe4;
+    --primary-color: #4057a1;
+    --secondary-color: #f23c1f;
+}
+
 
 $mobile-breakpoint: 320px;
 $tablet-breakpoint: 768px;
