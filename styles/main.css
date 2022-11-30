@@ -1,4 +1,52 @@
 @import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@700&display=swap");
+.colors1 {
+  --background-color: #49414d;
+  --color-black: #fad800;
+  --color-white: #ac44f2;
+  --primary-color: #42a1f8;
+  --secondary-color: #20b614;
+}
+
+.colors2 {
+  --background-color: #1e2606;
+  --color-black: #1f6521;
+  --color-white: #a4a71f;
+  --primary-color: #539110;
+  --secondary-color: #d6ce14;
+}
+
+.colors3 {
+  --background-color: #cbfafe;
+  --color-black: #96caf0;
+  --color-white: #55bdca;
+  --primary-color: #3fefe8;
+  --secondary-color: #fc4445;
+}
+
+.colors4 {
+  --background-color: #edf5e1;
+  --color-black: #8ee5af;
+  --color-white: #5cdc95;
+  --primary-color: #389584;
+  --secondary-color: #05386c;
+}
+
+.colors5 {
+  --background-color: #1a1a1c;
+  --color-black: #c3083f;
+  --color-white: #6f2232;
+  --primary-color: #950741;
+  --secondary-color: #4e4e50;
+}
+
+.colors6 {
+  --background-color: #f0e2ba;
+  --color-black: #d79922;
+  --color-white: #c5cbe4;
+  --primary-color: #4057a1;
+  --secondary-color: #f23c1f;
+}
+
 * {
   font-family: "Alexandria", "sans-serif";
   margin: 0;
@@ -6,32 +54,60 @@
 }
 
 .mainContainer {
-  background-color: #000000;
+  background-color: var(--background-color);
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 90vh;
-  margin: 5%;
+  height: 100vh;
 }
 
-h1 {
-  color: white;
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 5%;
+}
+.title_title {
+  color: var(--color-white);
+}
+.title_X {
+  color: var(--secondary-color);
+  font-size: 400%;
+  background-color: var(--background-color);
+  border: 0;
+}
+.title_O {
+  color: var(--primary-color);
+  font-size: 400%;
+  background-color: var(--background-color);
+  border: 0;
+}
+
+#themeSwitch {
+  border: 2px solid var(--color-white);
+  padding: 1%;
+  margin: 2%;
+  background-color: var(--color-white);
 }
 
 .playArea {
-  background-color: white;
+  background-color: var(--background-colorcolor);
   width: 70vw;
-  height: 70vh;
+  height: 50vh;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 33%);
+  grid-template-rows: repeat(3, 33%);
+  grid-column-gap: 5%;
+  justify-content: center;
+  margin: 5%;
 }
 .playArea_block {
-  background-color: #000000;
+  background-color: var(--color-white);
   margin: 5%;
   text-align: center;
   height: 80%;
-  font-size: 100px;
+  font-size: 500%;
+  border: 0;
 }
 .playArea_block-1 {
   grid-area: 1/1/2/2;
@@ -67,27 +143,27 @@ h1 {
   width: 60%;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  margin: 3%;
-  border-radius: 100%;
-  background-color: white;
+  margin: 1%;
+  border-radius: 40%;
+  padding: 3%;
+  background-color: var(--color-white);
 }
-
-.playerName {
-  font-size: large;
+.scoreCard_playerName {
+  font-size: 150%;
   text-align: center;
 }
-
-.playerScore {
+.scoreCard_playerScore {
   text-align: center;
+  font-size: 150%;
 }
 
 #playerName1 {
-  color: red;
+  color: var(--primary-color);
   grid-area: 1/1/2/2;
 }
 
 #playerName2 {
-  color: blue;
+  color: var(--secondary-color);
   grid-area: 1/2/2/3;
 }
 
@@ -111,19 +187,130 @@ h1 {
 }
 .buttons_box {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   border: 3px solid black;
   padding: 3%;
+  left: 20%;
+  right: 20%;
+  top: 40%;
+  top: 40%;
   position: absolute;
-  justify-content: center;
-  background-color: white;
+  background-color: var(--color-white);
 }
 .buttons_1 {
   margin: 5%;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  width: 80%;
+  height: 30%;
 }
 .buttons_2 {
   margin: 5%;
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  width: 80%;
+  height: 30%;
+}
+
+.overlay:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .screenShow {
   display: flex;
+}
+
+.Ochange {
+  color: var(--primary-color);
+}
+
+.Xchange {
+  color: var(--secondary-color);
+}
+
+@media screen and (min-width: 320px) {
+  .title {
+    font-size: 70%;
+  }
+  .playArea_block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 150%;
+    margin: 2%;
+  }
+  .scoreCard {
+    font-size: 125%;
+  }
+  .playArea {
+    margin: 2%;
+  }
+  .playArea_block {
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #themeSwitch {
+    font-size: 100%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .title {
+    font-size: 200%;
+    margin: 2%;
+  }
+  .scoreCard {
+    font-size: 180%;
+  }
+  #themeSwitch {
+    font-size: 150%;
+  }
+  .playArea_block {
+    font-size: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .title {
+    font-size: 250%;
+    margin: 2%;
+  }
+  .scoreCard {
+    font-size: 220%;
+  }
+  #themeSwitch {
+    font-size: 200%;
+  }
+  .playArea_block {
+    font-size: 150px;
+  }
+}
+@media screen and (min-width: 2560px) {
+  .title {
+    font-size: 400%;
+    margin: 2%;
+  }
+  .scoreCard {
+    font-size: 360%;
+  }
+  #themeSwitch {
+    font-size: 300%;
+  }
+  .playArea_block {
+    font-size: 250px;
+  }
 }/*# sourceMappingURL=main.css.map */

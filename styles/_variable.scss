@@ -2,20 +2,20 @@
 
 $primary-font: 'Alexandria', 'sans-serif';
 
-.retro{ 
---background-color: #000000;
---color-black: #000000;
---color-white: #ffff;
---primary-color: red;
---secondary-color: blue;
+.colors1{ 
+--background-color: #49414d;
+--color-black: #fad800;
+--color-white: #ac44f2;
+--primary-color: #42a1f8;
+--secondary-color: #20b614;
 }
 
-.neon {
-    --background-color: #32f42e;
-    --color-black: #000000;
-    --color-white: rgb(18, 232, 229);
-    --primary-color: rgb(242, 75, 214);
-    --secondary-color: rgb(255, 238, 0);
+.colors2 {
+    --background-color: #1e2606;
+    --color-black: #1f6521;
+    --color-white: #a4a71f;
+    --primary-color: #539110;
+    --secondary-color: #d6ce14;
 
 }
 
@@ -44,7 +44,7 @@ $primary-font: 'Alexandria', 'sans-serif';
     --secondary-color: #4e4e50;
 }
 
-.colors { 
+.colors6 { 
     --background-color: #f0e2ba;
     --color-black: #d79922;
     --color-white: #c5cbe4;
