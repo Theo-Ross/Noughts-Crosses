@@ -10,7 +10,7 @@ const block9 = document.getElementById("b9");
 
 
 const allBlocks = Array.from(document.querySelectorAll(".playArea_block"));
-const playerScore = document.querySelectorAll(".playerScore")
+const playerScore = document.querySelectorAll(".scoreCard_playerScore")
 
 const restartButton = document.querySelector(".restart");
 const resetButton = document.querySelector(".reset")
@@ -27,22 +27,28 @@ const Xchange = document.querySelector(".Xchange");
 const easterEggX = document.querySelector(".title_X");
 const easterEggO = document.querySelector(".title_O");
 
+const screen = document.querySelector(".buttons");
+const playerWinner = document.querySelector(".buttons_winner")
 
 let previousSymbol = ""
 let symbol = ""
 
+
 // theme swticher
 const switchThemes = (event) => {
-    if (body.classList.contains("retro")) {
-        body.classList.remove("retro");
-        body.classList.add("light");
-    } else if (body.classList.contains("light")) {
-        body.classList.remove("light");
-        body.classList.add("neon");
-    } else if (body.classList.contains("neon")) {
-        body.classList.remove("neon");
-        body.classList.add("retro");
-    }
+    if (body.classList.contains("colors1")) {
+        body.classList.replace("colors1", "colors2")
+    } else if (body.classList.contains("colors2")) {
+        body.classList.replace("colors2", "colors3")
+    } else if (body.classList.contains("colors3")) {
+        body.classList.replace("colors3", "colors4");
+}   else if (body.classList.contains("colors4")) {
+    body.classList.replace("colors4", "colors5")
+}   else if (body.classList.contains("colors5")) {
+    body.classList.replace("colors5", "colors6")
+} else if (body.classList.contains("colors6")) {
+    body.classList.replace("colors6", "colors1")
+}
 }
 
 themeSwitch.addEventListener("click", switchThemes)
@@ -54,12 +60,10 @@ themeSwitch.addEventListener("click", switchThemes)
 const playMove = (event) => {
     if ( event.target.innerHTML ===  "O") {
         window.alert("error")
-        // turn this into one statement
     } else if ( event.target.innerHTML === "X") {
         window.alert("error")
-    }
+    } // change this
     else {
-        // maybe simplify this line
     if (previousSymbol === ""){
         symbol = "O";
         event.target.innerHTML = symbol;
@@ -74,15 +78,6 @@ const playMove = (event) => {
         previousSymbol ="O";
 
     }}}
-
-
-
-// toggle class for screen when won 
-
-const screen = document.querySelector(".buttons");
-const playerWinner = document.querySelector(".buttons_winner")
-
-
 
 
 
@@ -103,8 +98,7 @@ const playerWinner = document.querySelector(".buttons_winner")
         const drawCheck = [
             block1.innerHTML, block2.innerHTML, block3.innerHTML, block4.innerHTML, block5.innerHTML, block6.innerHTML, block7.innerHTML, block8.innerHTML, block9.innerHTML
         ]
-
-        
+    
         winningStates.forEach((block) => {
          
             if (block.toString() === "X,X,X") {
@@ -117,65 +111,37 @@ const playerWinner = document.querySelector(".buttons_winner")
               previousSymbol = ""
               playerWinner.innerHTML = "PLAYER 1 WINS"
               screen.classList.add("screenShow")
-
-
-
-            // } else if (drawCheck.map((i) => {
-            //     console.log(i)
-            //     i.innerHTML.includes(" ");
-// draw bug still not fixed. Need to work out how to identify empty blocks
-
-            // })) { 
-                // console.log("You not done yet")
-
-            }
-
-            //   else if (block.toString() === "X,X,O" && block.toString() === "X,O,O" && block.toString() === "X,O,X" && block.toString() === "O,O,X" && block.toString() === "O,X,X" && block.toString() ==="O,X,O"){
-            //     console.log("draw!")
-        
-            else {
-                console.log("not finished")
-            } 
+            } else {
+            console.log("continue")      
+      }
         })
-    }
+    
+        
+        // let isDraw = true;
 
-            // add the confetti and pop-up innerHTml
+        // drawCheck.forEach((i) => {
+        //     if (i === " ") {
+        //         isDraw = false;
+        //     } 
+        // })
+      
+    }
+    
+// add the confetti and pop-up innerHTml
     
 
 
-
-
-
 // color function 
-const changeColor = (event ) => {
-    // if (event.target.innerHTML === "O" & event.classList.contains("Xchange") ) {
-    //     event.target.innerHTML.remove("Xchange")
-    //     event.target.classList.add("Ochange");
-    //     } else if (event.target.innerHTML === "O") {
-    //         event.target.classList.add("Ochange");
-    //     } else if (event.target.innerHTML === "X" && event.classList.contains("Ochange")) {
-    //         event.target.classList.remove("Ochange")
-    //         event.target.classList.add("Xchange");
-    //     } else if (event.target.innerHTML === "X") {
-    //         event.target.classList.add("Xchange")  
-    //     }
-
+const changeColor = (event) => {
         if  (event.target.innerHTML === "O") {
             event.target.classList.add("Ochange");
         } else if (event.target.innerHTML === "X") {
             event.target.classList.add("Xchange");
-        }
-
-       
+        }    
 }
 
 
-
-
-
-
 // restart & reset function 
-
 const restartGame = (event) => {
     allBlocks.forEach((block) => {
         block.classList.remove("Ochange", "Xchange")
@@ -208,13 +174,14 @@ resetButton.addEventListener("click", resetGame )
 // Easter Egg 
 
 const override = (event) => {
+    alert("override in affect")
     if (event.target.innerHTML === "O") {
         playerWinner.innerHTML = "PLAYER 2 WINS";
                 player2Score.innerHTML = (Number(player2Score.innerHTML) + 2)
                 previousSymbol = ""
         
         alert("O wins")
-                allBlocks.forEach((block) => {
+        allBlocks.forEach((block) => {
                     block.classList.remove("Xchange")
                     block.classList.add("Ochange")
                     block.innerHTML = "O";
@@ -234,61 +201,42 @@ const override = (event) => {
                     block.innerHTML = "X";
 })
                 screen.classList.add("screenShow")
+}}
 
-}
-}
-
-easterEggX.addEventListener("dblclick", override);
 easterEggO.addEventListener("dblclick", override);
+easterEggX.addEventListener("dblclick", override);
+
+// const overriden = () => {
+//     allBlocks.forEach( (i) => {
+//         setTimeout(() => {
+//         i.innerHTML="W"
+//     }, i  * 1000)
+// })}
 
 
 
-
-// turn this into one function to execute all three
+//click functions 
 
 const clickFunction = (event) => {
-    playMove, checkForWin, changeColor
+    playMove(event)
+    checkForWin(event) 
+    changeColor(event)
 }
 
-block1.addEventListener("click", playMove);
-block1.addEventListener("click", checkForWin);
-block1.addEventListener("click", changeColor);
+block1.addEventListener("click", clickFunction);
 
-block2.addEventListener("click", playMove);
-block2.addEventListener("click", checkForWin);
-block2.addEventListener("click", changeColor);
+block2.addEventListener("click", clickFunction);
 
+block3.addEventListener("click", clickFunction);
 
-block3.addEventListener("click", playMove);
-block3.addEventListener("click", checkForWin);
-block3.addEventListener("click", changeColor);
+block4.addEventListener("click", clickFunction);
 
+block5.addEventListener("click", clickFunction);
 
-block4.addEventListener("click", playMove);
-block4.addEventListener("click", checkForWin);
-block4.addEventListener("click", changeColor);
+block6.addEventListener("click", clickFunction);
 
+block7.addEventListener("click", clickFunction);
 
-block5.addEventListener("click", playMove);
-block5.addEventListener("click", checkForWin);
-block5.addEventListener("click", changeColor);
+block8.addEventListener("click", clickFunction);
 
-
-block6.addEventListener("click", playMove);
-block6.addEventListener("click", checkForWin);
-block6.addEventListener("click", changeColor);
-
-
-block7.addEventListener("click", playMove);
-block7.addEventListener("click", checkForWin);
-block7.addEventListener("click", changeColor);
-
-
-block8.addEventListener("click", playMove);
-block8.addEventListener("click", checkForWin)
-block8.addEventListener("click", changeColor);
-
-
-block9.addEventListener("click", playMove);
-block9.addEventListener("click", checkForWin);
-block9.addEventListener("click", changeColor);
+block9.addEventListener("click", clickFunction);
