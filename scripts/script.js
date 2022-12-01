@@ -94,10 +94,6 @@ const playMove = (event) => {
             [block1.innerHTML, block5.innerHTML, block9.innerHTML],
             [block7.innerHTML, block5.innerHTML, block3.innerHTML],
             ]
-
-        const drawCheck = [
-            block1.innerHTML, block2.innerHTML, block3.innerHTML, block4.innerHTML, block5.innerHTML, block6.innerHTML, block7.innerHTML, block8.innerHTML, block9.innerHTML
-        ]
     
         winningStates.forEach((block) => {
          
@@ -111,20 +107,31 @@ const playMove = (event) => {
               previousSymbol = ""
               playerWinner.innerHTML = "PLAYER 1 WINS"
               screen.classList.add("screenShow")
-            } else {
-            console.log("continue")      
-      }
+            }
         })
-    
-        
-        // let isDraw = true;
 
-        // drawCheck.forEach((i) => {
-        //     if (i === " ") {
-        //         isDraw = false;
-        //     } 
-        // })
+    }
+
+
+    const checkForDraw = () => {
+
+        const drawCheck = [
+            block1.innerHTML, block2.innerHTML, block3.innerHTML, block4.innerHTML, block5.innerHTML, block6.innerHTML, block7.innerHTML, block8.innerHTML, block9.innerHTML
+        ]
+
+        let isDraw = true;
+
+        drawCheck.forEach((i) => {
+            if (i === " ") {
+                isDraw = false;
+                console.log("false")
+            } 
+        })
       
+        if (isDraw = true) {
+            console.log("draw")
+            window.alert("draw")
+        }
     }
     
 // add the confetti and pop-up innerHTml
@@ -203,17 +210,21 @@ const override = (event) => {
                 screen.classList.add("screenShow")
 }}
 
-easterEggO.addEventListener("dblclick", override);
+
+
+const overriden = () => {
+    allBlocks.forEach( (i) => {
+
+        console.log(i.value)
+        setInterval(() => {
+        i.innerHTML="W"
+
+    }, i.value * 1000)
+})}
+
+
+easterEggO.addEventListener("click", overriden);
 easterEggX.addEventListener("dblclick", override);
-
-// const overriden = () => {
-//     allBlocks.forEach( (i) => {
-//         setTimeout(() => {
-//         i.innerHTML="W"
-//     }, i  * 1000)
-// })}
-
-
 
 //click functions 
 
