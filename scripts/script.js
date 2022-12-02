@@ -33,6 +33,7 @@ const playerWinner = document.querySelector(".buttons_winner")
 let previousSymbol = ""
 let symbol = ""
 
+let counter = 0;
 
 // theme swticher
 const switchThemes = (event) => {
@@ -58,24 +59,27 @@ themeSwitch.addEventListener("click", switchThemes)
 //playmove 
 
 const playMove = (event) => {
-    if ( event.target.innerHTML ===  "O") {
+    if ( event.target.innerHTML ===  "O" ) {
         window.alert("error")
     } else if ( event.target.innerHTML === "X") {
         window.alert("error")
-    } // change this
+    } 
     else {
     if (previousSymbol === ""){
         symbol = "O";
         event.target.innerHTML = symbol;
         previousSymbol ="O";
+        counter ++;
     } else if (previousSymbol === "O") {
         symbol = "X"
         event.target.innerHTML = symbol;
         previousSymbol = "X";
+        counter ++;
     } else if (previousSymbol === "X") {
         symbol = "O";
         event.target.innerHTML = symbol;
         previousSymbol ="O";
+        counter ++;
 
     }}}
 
@@ -101,37 +105,23 @@ const playMove = (event) => {
                 playerWinner.innerHTML = "PLAYER 2 WINS";
                 player2Score.innerHTML = (Number(player2Score.innerHTML) + 1)
                 previousSymbol = ""
+                confetti()
                 screen.classList.add("screenShow")
             } else if (block.toString() === "O,O,O") {
               player1Score.innerHTML = (Number(player1Score.innerHTML) + 1)
               previousSymbol = ""
               playerWinner.innerHTML = "PLAYER 1 WINS"
               screen.classList.add("screenShow")
+              confetti();
+            } else if (counter >=9) {
+                previousSymbol = "";
+                playerWinner.innerHTML = "ITS A DRAW"
+                screen.classList.add("screenShow")
+            } else {
+                console.log("continue")
             }
         })
 
-    }
-
-
-    const checkForDraw = () => {
-
-        const drawCheck = [
-            block1.innerHTML, block2.innerHTML, block3.innerHTML, block4.innerHTML, block5.innerHTML, block6.innerHTML, block7.innerHTML, block8.innerHTML, block9.innerHTML
-        ]
-
-        let isDraw = true;
-
-        drawCheck.forEach((i) => {
-            if (i === " ") {
-                isDraw = false;
-                console.log("false")
-            } 
-        })
-      
-        if (isDraw = true) {
-            console.log("draw")
-            window.alert("draw")
-        }
     }
     
 // add the confetti and pop-up innerHTml
@@ -154,6 +144,7 @@ const restartGame = (event) => {
         block.classList.remove("Ochange", "Xchange")
         block.innerHTML = ""
         previousSymbol = ""
+        counter = 0;
         
     })
     screen.classList.remove("screenShow");
@@ -165,6 +156,7 @@ const resetGame = (event) => {
         block.classList.remove("Ochange", "Xchange")
         block.innerHTML = "";
         previousSymbol = "";
+        counter = "";
         
     })
     // turn this into a function?
@@ -179,15 +171,12 @@ resetButton.addEventListener("click", resetGame )
 
 
 // Easter Egg 
-
 const override = (event) => {
-    alert("override in affect")
     if (event.target.innerHTML === "O") {
         playerWinner.innerHTML = "PLAYER 2 WINS";
                 player2Score.innerHTML = (Number(player2Score.innerHTML) + 2)
                 previousSymbol = ""
         
-        alert("O wins")
         allBlocks.forEach((block) => {
                     block.classList.remove("Xchange")
                     block.classList.add("Ochange")
@@ -201,7 +190,6 @@ const override = (event) => {
         player1Score.innerHTML = (Number(player1Score.innerHTML) + 2)
         previousSymbol = ""
 
-        alert("X wins")
         allBlocks.forEach((block) => {
             block.classList.remove("Ochange")
             block.classList.add("Xchange")
@@ -212,18 +200,8 @@ const override = (event) => {
 
 
 
-const overriden = () => {
-    allBlocks.forEach( (i) => {
 
-        console.log(i.value)
-        setInterval(() => {
-        i.innerHTML="W"
-
-    }, i.value * 1000)
-})}
-
-
-easterEggO.addEventListener("click", overriden);
+easterEggO.addEventListener("dblclick", override);
 easterEggX.addEventListener("dblclick", override);
 
 //click functions 

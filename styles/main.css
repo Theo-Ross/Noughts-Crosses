@@ -1,25 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@700&display=swap");
 .colors1 {
-  --background-color: #49414d;
-  --color-black: #fad800;
-  --color-white: #ac44f2;
-  --primary-color: #42a1f8;
-  --secondary-color: #20b614;
+  --background-color: #f0e2ba;
+  --color-black: #d79922;
+  --color-white: #c5cbe4;
+  --primary-color: #4057a1;
+  --secondary-color: #f23c1f;
 }
 
 .colors2 {
-  --background-color: #1e2606;
-  --color-black: #1f6521;
-  --color-white: #a4a71f;
-  --primary-color: #539110;
-  --secondary-color: #d6ce14;
+  --background-color: #55423d;
+  --color-black: #ffc0ad;
+  --color-white: #fff3ec;
+  --primary-color: #e78fb3;
+  --secondary-color: #9656a1;
 }
 
 .colors3 {
   --background-color: #cbfafe;
   --color-black: #96caf0;
   --color-white: #55bdca;
-  --primary-color: #3fefe8;
+  --primary-color: #11df6e;
   --secondary-color: #fc4445;
 }
 
@@ -40,11 +40,11 @@
 }
 
 .colors6 {
-  --background-color: #f0e2ba;
-  --color-black: #d79922;
-  --color-white: #c5cbe4;
-  --primary-color: #4057a1;
-  --secondary-color: #f23c1f;
+  --background-color: #0f0e17;
+  --color-black: #fffffe;
+  --color-white: #f25f4c;
+  --primary-color: rgb(162, 88, 4);
+  --secondary-color: #950538;
 }
 
 * {
